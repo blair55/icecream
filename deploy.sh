@@ -11,7 +11,7 @@ EB_KEY=$APP_NAME/$DOCKERRUN_FILE
 sed "s/<TAG>/$VERSION/" < Dockerrun.aws.json.template > $DOCKERRUN_FILE
 
 # copy transformed file to s3
-aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$EB_KEY
+aws s3 cp $DOCKERRUN_FILE s3://$EB_BUCKET/$EB_KEY --region eu-west-1
 
 # create application version
 aws elasticbeanstalk create-application-version --application-name nick-docker-test --version-label $VERSION_LABEL --source-bundle S3Bucket=$EB_BUCKET,S3Key=$EB_KEY
