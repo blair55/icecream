@@ -8,8 +8,8 @@ dependencies:
   pre:
     - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
     - sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    - sudo apt-get update --qq
-    - sudo apt-get install --qq -y dotnet-dev-1.0.0-preview1-002702
+    - sudo apt-get -qq update
+    - sudo apt-get -qq install dotnet-dev-1.0.0-preview1-002702
     - pip -q install awscli
     - dotnet restore
     - dotnet publish -o ./out
@@ -19,5 +19,5 @@ deployment:
   hub:
     branch: master
     commands:
-      - docker login --username="$DOCKER_USER" --password="$DOCKER_PASS"
+      - yes | docker login --username="$DOCKER_USER" --password="$DOCKER_PASS"
       - docker push nickblair/icecream:$CIRCLE_BUILD_NUM
