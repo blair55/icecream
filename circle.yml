@@ -25,4 +25,4 @@ deployment:
     commands:
       - docker login --username="$DOCKER_USER" --password="$DOCKER_PASS" --email="$DOCKER_EMAIL"
       - docker push nickblair/icecream:$CIRCLE_BUILD_NUM
-      - ./deploy.sh
+      - sudo sh ./deploy.sh
