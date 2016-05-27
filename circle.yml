@@ -15,6 +15,10 @@ dependencies:
     - dotnet publish -o ./out
     - docker build -t nickblair/icecream:$CIRCLE_BUILD_NUM .
 
+test:
+  override:
+    - echo "test"
+
 deployment:
   hub:
     branch: master
