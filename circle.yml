@@ -9,4 +9,13 @@ dependencies:
     - curl -sSL https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0-preview1/scripts/obtain/dotnet-install.sh | bash /dev/stdin --version 1.0.0-preview1-002702 --install-dir ~/dotnet
     - sudo ln -s ~/dotnet/dotnet /usr/local/bin
     - pip install awscli
+    - dotnet restore
+    - dotnet publish -o ./out
     - docker build -t nickblair/icecream:$CIRCLE_BUILD_NUM .
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push nickblair/icecream:$CIRCLE_BUILD_NUM
