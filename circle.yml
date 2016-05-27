@@ -23,5 +23,5 @@ deployment:
   hub:
     branch: master
     commands:
-      - yes | docker login --username="$DOCKER_USER" --password="$DOCKER_PASS" --email="$DOCKER_EMAIL"
+      - docker login --username="$DOCKER_USER" --password="$DOCKER_PASS" --email="$DOCKER_EMAIL"
       - docker push nickblair/icecream:$CIRCLE_BUILD_NUM
