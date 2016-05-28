@@ -28,6 +28,7 @@ bld/
 wwwroot/
 out/
 .vagrant/
+.dockercfg
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
