@@ -11,17 +11,16 @@ dependencies:
     - pip -q install awscli
     - dotnet restore
     - dotnet publish -o ./out
-    - ls ./out
-#     - docker build -t nickblair/icecream:$CIRCLE_BUILD_NUM .
-#
-# test:
-#   override:
-#     - echo "test"
-#
-# deployment:
-#   hub:
-#     branch: master
-#     commands:
-#       - docker login --username="$DOCKER_USER" --password="$DOCKER_PASS" --email="$DOCKER_EMAIL"
-#       - docker push nickblair/icecream:$CIRCLE_BUILD_NUM
-#       - sudo sh ./deploy.sh $CIRCLE_BUILD_NUM
+    - docker build -t nickblair/icecream:$CIRCLE_BUILD_NUM .
+
+test:
+  override:
+    - echo "test"
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login --username="$DOCKER_USER" --password="$DOCKER_PASS" --email="$DOCKER_EMAIL"
+      - docker push nickblair/icecream:$CIRCLE_BUILD_NUM
+      - sudo sh ./deploy.sh $CIRCLE_BUILD_NUM
