@@ -1,13 +1,13 @@
 #! /bin/bash
 
+export AWS_DEFAULT_REGION=eu-west-1
 VERSION=$1
 APP_NAME=icecream
 VERSION_LABEL=$APP_NAME-$VERSION
-DOCKERRUN_FILE=Dockerrun.aws.json
+DOCKERRUN_FILE=$VERSION_LABEL-Dockerrun.aws.json
 AWS_REGION=eu-west-1
 AWS_BUCKET=nick-docker-test
-AWS_KEY=$APP_NAME/$VERSION/$DOCKERRUN_FILE
-AWS_DEFAULT_REGION=eu-west-1
+AWS_KEY=elasticbeanstalk-docker-deploys/$APP_NAME/$DOCKERRUN_FILE
 # transform template
 sed "s/<TAG>/$VERSION/" < Dockerrun.aws.json.template > $DOCKERRUN_FILE
 #--region $AWS_REGION
