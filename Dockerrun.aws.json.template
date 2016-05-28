@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Authentication": {
-    "Bucket": "elasticbeanstalk-docker-deploys",
+    "Bucket": "elasticbeanstalk-docker-deploys-2",
     "Key": ".docker/config.json"
   },
   "Image": {
