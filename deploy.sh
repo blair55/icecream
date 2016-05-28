@@ -8,9 +8,10 @@ DOCKERRUN_FILE=$VERSION_LABEL-Dockerrun.aws.json
 AWS_REGION=eu-west-1
 AWS_BUCKET=nick-docker-test
 AWS_KEY=elasticbeanstalk-docker-deploys/$APP_NAME/$DOCKERRUN_FILE
+
 # transform template
 sed "s/<TAG>/$VERSION/" < Dockerrun.aws.json.template > $DOCKERRUN_FILE
-#--region $AWS_REGION
+
 # copy transformed file to s3
 aws s3 cp $DOCKERRUN_FILE s3://$AWS_BUCKET/$AWS_KEY
 
