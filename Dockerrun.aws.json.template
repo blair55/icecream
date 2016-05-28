@@ -1,8 +1,8 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Authentication": {
-    "Bucket": "nick-docker-test",
-    "Key": "elasticbeanstalk-docker-deploys/.docker/config.json"
+    "Bucket": "elasticbeanstalk-docker-deploys",
+    "Key": ".docker/config.json"
   },
   "Image": {
     "Name": "nickblair/icecream:<TAG>",
