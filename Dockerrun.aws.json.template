@@ -2,7 +2,7 @@
   "AWSEBDockerrunVersion": "1",
   "Authentication": {
     "Bucket": "nick-docker-test",
-    "Key": ".docker/nonsense"
+    "Key": ".docker/config.json"
   },
   "Image": {
     "Name": "nickblair/icecream:<TAG>",
