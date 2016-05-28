@@ -18,4 +18,4 @@ aws s3 cp $DOCKERRUN_FILE s3://$DOCKERRUN_AWS_BUCKET/$DOCKERRUN_AWS_KEY
 aws elasticbeanstalk create-application-version --application-name nick-docker-test --version-label $VERSION_LABEL --source-bundle S3Bucket=$DOCKERRUN_AWS_BUCKET,S3Key=$DOCKERRUN_AWS_KEY
 
 # deploy new version
-#aws elasticbeanstalk update-environment --environment-name ndt-env-3 --version-label $VERSION_LABEL
+aws elasticbeanstalk update-environment --environment-name ndt2-env-3 --version-label $VERSION_LABEL
