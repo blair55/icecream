@@ -4,14 +4,14 @@ machine:
 
 dependencies:
   pre:
-    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-    - sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    - sudo apt-get -qq update
-    - sudo apt-get -qq install dotnet-dev-1.0.0-preview1-002702
+    # - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+    # - sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+    # - sudo apt-get -qq update
+    # - sudo apt-get -qq install dotnet-dev-1.0.0-preview1-002702
     - pip -q install awscli
-    - dotnet restore
-    - dotnet publish -o ./out
-    - docker build -t nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM .
+    # - dotnet restore
+    # - dotnet publish -o ./out
+    # - docker build -t nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM .
 
 test:
   override:
@@ -21,6 +21,6 @@ deployment:
   hub:
     branch: master
     commands:
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
-      - docker push nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
+    #   - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
+    #   - docker push nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
       - sudo sh ./deploy.sh $CIRCLE_BUILD_NUM
