@@ -27,6 +27,9 @@ namespace icecream
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+            services.Configure<MyOptions>(Configuration);
+
             // Add framework services.
             services.AddMvc();
         }
@@ -39,5 +42,11 @@ namespace icecream
 
             app.UseMvc();
         }
+    }
+
+    public class MyOptions
+    {
+        public string Option1 { get; set; }
+        public int Option2 { get; set; }
     }
 }
