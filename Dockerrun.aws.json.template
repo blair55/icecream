@@ -5,12 +5,12 @@
     "Key": ".docker/config.json"
   },
   "Image": {
-    "Name": "nickblair/icecream:<TAG>",
+    "Name": "nickblair/<APP_NAME>:<VERSION>",
     "Update": "true"
   },
   "Ports": [
     {
-      "ContainerPort": "5000"
+      "ContainerPort": "<EXPOSED_PORT>"
     }
   ]
 }
