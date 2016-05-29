@@ -24,7 +24,7 @@ deployment:
     #   - docker build -t nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM .
     #   - docker push nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
       - ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM $EXPOSED_PORT:
-        environment:
-          AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-          AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-          AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+         environment:
+           AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+           AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+           AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
