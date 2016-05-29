@@ -1,7 +1,10 @@
 machine:
   services:
     - docker
-
+  environment:
+    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
 dependencies:
   pre:
     # - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -23,4 +26,4 @@ deployment:
     #   - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
     #   - docker build -t nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM .
     #   - docker push nickblair/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM
-      - sudo sh ./deploy.sh $CIRCLE_BUILD_NUM
+      - sudo sh ./deploy.sh $CIRCLE_PROJECT_REPONAME $CIRCLE_BUILD_NUM $EXPOSED_PORT
